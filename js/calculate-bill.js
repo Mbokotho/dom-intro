@@ -10,7 +10,7 @@ var billStringField = document.querySelector(".billString");
 //  * loop over all the entries in the the resulting list
 //  * check if it is a call or an sms and add the right amount to the overall total
 //  * once done looping over all the entries - display the total onto the screen in the billTotal elemen
-
+calculateBtn.addEventListener('click', calculateBtnClicked) ;
 function calculateBtnClicked(){
     // get the string entered in the textArea
     var billString = billStringField.value;
@@ -33,8 +33,36 @@ function calculateBtnClicked(){
     var roundedBillTotal = billTotal.toFixed(2);
     billTotalElement.innerHTML = roundedBillTotal;
 
+
+/*switch (billTotal) {
+  case   billTotal > 30  :
+  billTotalElement.classList.add("danger");
+
+    break;
+
+  case  billTotal > 20 :
+  billTotalElement.classList.add("warning");
+
+    break;
+  default:
+
+}*/
+
+
+   if (billTotal >= 30){
+            // adding the danger class will make the text red
+            billTotalElement.classList.add("danger");
+        }
+        else if (billTotal > 20){
+            billTotalElement.classList.add("warning");
+        }
+
+
+
+
 }
-calculateBtn.addEventListener('click', calculateBtnClicked);
+
+
 
 /*var totalPhoneBill = function(billString){
 var comms = billString.split(', ')
