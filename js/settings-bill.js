@@ -1,12 +1,28 @@
 // get a reference to the sms or call radio buttons
-
+var billItemTypeWithSettings =document.querySelector(".billItemTypeWithSettings");
 // get refences to all the settings fields
-
+var smsCostSetting = document.querySelector('.smsCostSetting');
+var callCostSetting = document.querySelector('.callCostSetting');
+var warningLevelSetting = document.querySelector('.warningLevelSetting');
+var criticalLevelSetting = document.querySelector('.criticalLevelSetting');
 //get a reference to the add button
 
 //get a reference to the 'Update settings' button
+var radioBillSettingsAddBtn = document.querySelector(".radioBillSettingsAddBtn ");
+var updateSettingsBtn = document.querySelector('.updateSettingsBtn');
 
 // create a variables that will keep track of all the settings
+var callTotalSettings = document.querySelector('.callTotalSettings');
+var smsTotalSettings = document.querySelector('.smsTotalSettings');
+var totalSettings = document.querySelector('.totalSettings');
+
+var callCost = 0;
+var smsCost = 0 ;
+var Total = 0;
+
+var criticalLevel = 70.0;
+var sms = 0.0;
+var call = 0.00;
 
 // create a variables that will keep track of all three totals.
 
@@ -14,60 +30,63 @@
 
 //add an event listener for when the add button is pressed
 
+
 //in the event listener get the value from the billItemTypeRadio radio buttons
 // * add the appropriate value to the call / sms total
 // * add the appropriate value to the overall total
 // * add nothing for invalid values that is not 'call' or 'sms'.
 // * display the latest total on the screen.
-// * check the value thresholds and display the total value in the right color.
-var billItemTypeRadio =document.querySelector(".billItemTypeRadio");
-//get a reference to the add button
-var radioBillSettingsAddBtn = document.querySelector(".radioBillSettingsAddBtn");
+// * check the value thresholds and display the total value in the right
+//get a reference to the add buttongs");
 
-var callTotalSettingsElement= document.querySelector(".callTotalSettings");
-var smsTotalSettingsElement =document.querySelector(".smsTotalSettings");
-var totalSettingsElement =document.querySelector(".totalSettings");
-var smsCostSetting = document.querySelector(".smsCostSetting");
-var callCostSetting=document.querySelector(".callCostSetting");
-//create a variable that will keep track of the total bill
-var callRadio = 0;
-var smsRadio = 0;
-var totalRadio = 0;
+function Settinngs(){
 
-//add an event listener for when the add button is pressed
-radioBillSettingsAddBtn.addEventListener('click', radioSettingsBillTotal);
+callCost = parseFloat(callCostSetting.value);
 
-//in the event listener get the value from the billItemTypeRadio radio buttons
-// * add the appropriate value to the running total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screenfunction textBillTotal(){
-   // get the value entered in the billType textfield
-   function radioSettingsBillTotal(){
-      // get the value entered in the billType textfield
-      var CheckedRadioBtn = document.querySelector("input[name='billItemTypeSettings']:checked");
-if (CheckedRadioBtn){
-    var billItemTyperadio = CheckedRadioBtn.value;
-    // billItemType will be 'call' or 'sms'
+smsCost = parseFloat(smsCostSetting.value);
+
+criticalLevel= parseFloat(criticalLevelSetting.value);
+
+warningLevel = parseFloat(warningLevelSetting.value);
+
 }
-  if(billItemTyperadio === "call"){
-          callRadio += 0.55;
-      }
-      else if (billItemTyperadio === "sms"){
-          smsRadio += 2 ;
-      }
 
-      //update the totals that is displayed on the screen.
-      callTotalSettingsElement.innerHTML = callRadio;
-      smsTotalSettingsElement.innerHTML = smsRadio;
-      totalSettingsElement.innerHTML = totalRadio;
-      totalRadio = callRadio + smsRadio;
+
+updateSettingsBtn.addEventListener('click', Settinngs);
+
+
+       function radioBillTotalSettings(){
+          // get the value entered in the billType textfield
+          var checkedRadioBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
+    if (checkedRadioBtn){
+        var billItemType = checkedRadioBtn.value;
+        // billItemType will be 'call' or 'sms'
+if (Total >= criticalLevel) {
+
+} else {
+  if(billItemType === "call"){
+          call += callCost;
+      }
+      else if (billItemType === "sms"){
+          sms += smsCost;
+      }
+  Total = call + sms;
 }
-    /*  if (totalRadio >= 50){
-              // adding the danger class will make the text red
-              totalSettings.classList.add("danger");
-          }
-          else if (totalRadio >= 30){
-              totalSettings.classList.add("warning");
-          }
-console.log(totalRadio);
-  }
+
+    }
+
+smsTotalSettings.innerHTML = sms.toFixed(2);
+callTotalSettings.innerHTML = call.toFixed(2);
+totalSettings.innerHTML = Total.toFixed(2);
+  };
+
+
+  /*if (Total >= criticalLevel){
+       // adding the danger class will make the text red
+       totalSettings.classList.add("danger");
+   }
+   else if (Total >= warningLevel){
+       totalSettings.classList.add("warning");
+   };*/
+
+    radioBillSettingsAddBtn.addEventListener('click', radioBillTotalSettings);
