@@ -35,10 +35,11 @@ if (checkedRadioBtn){
       }
 
       //update the totals that is displayed on the screen.
+      total = call + sms;
       callTotalTwo.innerHTML = call;
       smsTotalTwo.innerHTML = sms;
       totalTwo.innerHTML = total;
-      total = call + sms;
+
 
       if (total >= 50){
               // adding the danger class will make the text red
@@ -47,5 +48,25 @@ if (checkedRadioBtn){
           else if (total>= 30){
               totalTwo.classList.add("warning");
           }
+
+
+
+             if (total >= 50){
+                      // adding the danger class will make the text red
+                    totalTwo.classList.add("danger");
+                    }
+                    else if (total >= 30){
+                        totalTwo.classList.add("warning");
+                    }
+
+
+          if (total < 50) {
+            totalTwo.classList.remove("danger");
+          }
+
+          if (total < 30) {
+            totalTwo.classList.remove("warning");
+          }
+
 
   }

@@ -37,51 +37,30 @@ function calculateBtnClicked(){
 /*switch (billTotal) {
   case   billTotal > 30  :
   billTotalElement.classList.add("danger");
-
     break;
-
   case  billTotal > 20 :
   billTotalElement.classList.add("warning");
-
     break;
   default:
-
 }*/
 
 
    if (billTotal >= 30){
             // adding the danger class will make the text red
             billTotalElement.classList.add("danger");
-        }
-        else if (billTotal > 20){
-            billTotalElement.classList.add("warning");
-        }
+          }
+          else if (billTotal >= 20){
+              billTotalElement.classList.add("warning");
+          }
 
 
+if (billTotal < 30) {
+  billTotalElement.classList.remove("danger");
+}
 
-
+if (billTotal < 20) {
+  billTotalElement.classList.remove("warning");
 }
 
 
-
-/*var totalPhoneBill = function(billString){
-var comms = billString.split(', ')
-var total = 0;
-//var bill = comms
-//console.log(bill);
-for(var i=0;i<comms.length;i++){
-console.log(comms[i]);
- switch(comms[i]){
-   case "call":
-  total += 2.75;
-   break;
-   case "sms":
-   total += 0.65;
-     break;
-
-
- }
-}return 'R'+total.toFixed(2);
-}*/
-
-//link the function to a click event on the calculate button
+}

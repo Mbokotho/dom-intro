@@ -23,26 +23,31 @@ var total = 0;
         sms += 0.75;
     }
     //update the totals that is displayed on the screen.
+    total = call + sms;
     callTotalOne.innerHTML = call;
     smsTotalOne.innerHTML = sms;
     totalOne.innerHTML = total;
-    total = call + sms;
+
 
     if (total >= 50){
             // adding the danger class will make the text red
             totalOne.classList.add("danger");
         }
-        else if (total>= 30){
+        else if (total >= 30){
             totalOne.classList.add("warning");
         }
+
+           
+
+        if (billTotal < 30) {
+          billTotalElement.classList.remove("danger");
+        }
+
+        if (billTotal < 20) {
+          billTotalElement.classList.remove("warning");
+        }
+
 
 }
 
 addToBillBtn.addEventListener('click', textBillTotal);
-
-//add an event listener for when the add button is pressed
-
-//in the event listener check if the value in the bill type textbox is 'sms' or 'call'
-// * add the appropriate value to the running total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screen

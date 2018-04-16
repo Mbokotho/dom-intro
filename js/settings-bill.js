@@ -20,7 +20,8 @@ var callCost = 0;
 var smsCost = 0 ;
 var Total = 0;
 
-var criticalLevel = 70.0;
+var criticalLevel = 0;
+var warningLevel= 0;
 var sms = 0.0;
 var call = 0.00;
 
@@ -48,7 +49,8 @@ smsCost = parseFloat(smsCostSetting.value);
 criticalLevel= parseFloat(criticalLevelSetting.value);
 
 warningLevel = parseFloat(warningLevelSetting.value);
-
+console.log(criticalLevel);
+console.log(warningLevel);
 }
 
 
@@ -61,32 +63,45 @@ updateSettingsBtn.addEventListener('click', Settinngs);
     if (checkedRadioBtn){
         var billItemType = checkedRadioBtn.value;
         // billItemType will be 'call' or 'sms'
-if (Total >= criticalLevel) {
+}
 
-} else {
   if(billItemType === "call"){
           call += callCost;
       }
       else if (billItemType === "sms"){
           sms += smsCost;
       }
-  Total = call + sms;
-}
 
-    }
 
+
+
+Total = call + sms;
 smsTotalSettings.innerHTML = sms.toFixed(2);
 callTotalSettings.innerHTML = call.toFixed(2);
 totalSettings.innerHTML = Total.toFixed(2);
-  };
 
 
-  /*if (Total >= criticalLevel){
+
+  if (Total > criticalLevel){
        // adding the danger class will make the text red
        totalSettings.classList.add("danger");
    }
-   else if (Total >= warningLevel){
+   else if (Total >  warningLevel){
        totalSettings.classList.add("warning");
-   };*/
+   }
+
+
+
+
+if (Total < criticalLevel) {
+  totalSettings.classList.remove("danger");
+}
+
+if (billTotal < warningLevel) {
+  totalSettings.classList.remove("warning");
+}
+
+
+   };
 
     radioBillSettingsAddBtn.addEventListener('click', radioBillTotalSettings);
