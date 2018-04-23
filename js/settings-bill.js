@@ -16,14 +16,15 @@ var callTotalSettings = document.querySelector('.callTotalSettings');
 var smsTotalSettings = document.querySelector('.smsTotalSettings');
 var totalSettings = document.querySelector('.totalSettings');
 
-var callCost = 0;
-var smsCost = 0 ;
-var Total = 0;
-
 var criticalLevel = 0;
 var warningLevel= 0;
+var callCost = 0;
+var smsCost = 0 ;
+
+
 var sms = 0.0;
 var call = 0.00;
+var Total = 0;
 
 
 function Settinngs(){
@@ -35,8 +36,7 @@ smsCost = parseFloat(smsCostSetting.value);
 criticalLevel= parseFloat(criticalLevelSetting.value);
 
 warningLevel = parseFloat(warningLevelSetting.value);
-console.log(criticalLevel);
-console.log(warningLevel);
+
 }
 
 
@@ -50,13 +50,14 @@ updateSettingsBtn.addEventListener('click', Settinngs);
         var billItemType = checkedRadioBtn.value;
         // billItemType will be 'call' or 'sms'
 }
-        if (Total >= criticalLevel) {
+        if (Total >= criticalLevel) {}
 
-        }else{
-          if(billItemType === "call"){
+
+        else{
+                if(billItemType === "call"){
                   call += callCost;
-              }
-              else if (billItemType === "sms"){
+                 }
+                else if (billItemType === "sms"){
                   sms += smsCost;
               }
 
@@ -92,3 +93,4 @@ if (Total < warningLevel) {
    };
 
     radioBillSettingsAddBtn.addEventListener('click', radioBillTotalSettings);
+    updateSettingsBtn.addEventListener('click', Settinngs);
