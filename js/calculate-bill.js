@@ -1,15 +1,13 @@
  var calculateBtn = document.querySelector(".calculateBtn");
-
  var billTotalElement= document.querySelector(".billTotal");
-
  var billStringField = document.querySelector(".billString");
 
 
+// Logic function
 
 function calculateBtnClicked(billString){
 
-
-  var billTotal = 0;
+    var billTotal = 0;
 
 
     var billItems = billString.split(",");
@@ -28,6 +26,7 @@ function calculateBtnClicked(billString){
   }
 
 
+// DOM code function
 
 function DisplayFun(){
 
