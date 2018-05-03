@@ -1,0 +1,19 @@
+describe('Textbill widget', function(){
+    it('should calculate total cost of phone calls made', function(){
+      var factory = Textbillfactory();
+
+      factory.bill_type('call');
+
+      assert.equal(factory.tTotal(), 2.75);
+
+});
+it('should calculate total cost of smses sent', function(){
+  var factory = Textbillfactory();
+
+  factory.bill_type('sms');
+
+  assert.equal(factory.tTotal(), 0.75);
+
+});
+
+});

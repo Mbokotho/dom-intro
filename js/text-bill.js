@@ -8,45 +8,40 @@ var callTotalOne= document.querySelector(".callTotalOne");
 var smsTotalOne =document.querySelector(".smsTotalOne");
 var totalOne =document.querySelector(".totalOne");
 //create a variable that will keep track of the total bill
-var call = 0;
-var sms = 0;
-var total = 0;
-
- function textBillTotal(){
-    // get the value entered in the billType textfield
-    var billTypeEntered = billTypeText.value.trim();
-    // update the correct total
-    if (billTypeEntered === "call"){
-        call += 2.75;
-    }
-    else if (billTypeEntered === "sms"){
-        sms += 0.75;
-    }
-    //update the totals that is displayed on the screen.
-    total = call + sms;
-    callTotalOne.innerHTML = call;
-    smsTotalOne.innerHTML = sms;
-    totalOne.innerHTML = total;
 
 
-    if (total >= 50){
-            // adding the danger class will make the text red
-            totalOne.classList.add("danger");
-        }
-        else if (total >= 30){
-            totalOne.classList.add("warning");
-        }
+var factory = Textbillfactory();
 
-           
+function textBillTotal(){
 
-        if (billTotal < 30) {
-          billTotalElement.classList.remove("danger");
-        }
+var billTypeEntered = billTypeText.value.trim();
 
-        if (billTotal < 20) {
-          billTotalElement.classList.remove("warning");
-        }
+factory.bill_type(billTypeEntered);
 
+
+    callTotalOne.innerHTML = factory.call_total().toFixed(2);
+    smsTotalOne.innerHTML = factory.sms_total().toFixed(2);;
+    totalOne.innerHTML = factory.tTotal().toFixed(2);
+
+
+    // if (total >= 50){
+    //         // adding the danger class will make the text red
+    //         totalOne.classList.add("danger");
+    //     }
+    //     else if (total >= 30){
+    //         totalOne.classList.add("warning");
+    //     }
+    //
+    //
+    //
+    //     if (billTotal < 30) {
+    //       billTotalElement.classList.remove("danger");
+    //     }
+    //
+    //     if (billTotal < 20) {
+    //       billTotalElement.classList.remove("warning");
+    //     }
+    //
 
 }
 
