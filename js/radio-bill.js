@@ -8,12 +8,11 @@ var smsTotalTwo =document.querySelector(".smsTotalTwo");
 var totalTwo =document.querySelector(".totalTwo");
 
 //create a variable that will keep track of the total bill
-var call = 0;
-var sms = 0;
-var total = 0;
+
+
 
 //add an event listener for when the add button is pressed
-radioBillAddBtn.addEventListener('click', radioBillTotal);
+
 
 var Factory = Radiobillfactory();
    // get the value entered in the billType textfield
@@ -27,7 +26,7 @@ if (checkedRadioBtn){
 }
 
 Factory.bill_Type(billItemType);
-      //update the totals that is displayed on the screen.
+
       callTotalTwo.innerHTML = Factory.call_Total().toFixed(2);
       smsTotalTwo.innerHTML =Factory. sms_Total().toFixed(2);
       totalTwo.innerHTML = Factory.TTotal().toFixed(2);
@@ -62,3 +61,4 @@ Factory.bill_Type(billItemType);
       //
 
   }
+  radioBillAddBtn.addEventListener('click', radioBillTotal);

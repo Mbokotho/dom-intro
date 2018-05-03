@@ -6,7 +6,7 @@ function Radiobillfactory(){
 
   function bill_Type(billType){
 
-    var billTypeEntered = billItemType;
+    var billTypeEntered = billType;
 
         if (billTypeEntered === "call"){
             call += 2.75;
@@ -34,7 +34,7 @@ function Radiobillfactory(){
            bill_Type,
            call_Total,
            sms_Total,
-           tTotal,       }
+           TTotal,       }
 
 
 }
