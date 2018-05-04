@@ -16,26 +16,27 @@ var callTotalSettings = document.querySelector('.callTotalSettings');
 var smsTotalSettings = document.querySelector('.smsTotalSettings');
 var totalSettings = document.querySelector('.totalSettings');
 
-var criticalLevel = 0;
-var warningLevel= 0;
-var callCost = 0;
-var smsCost = 0 ;
 
-
-var sms = 0.0;
-var call = 0.00;
-var Total = 0;
-
+var Faactory = Settingsfactory();
 
 function Settinngs(){
 
-callCost = parseFloat(callCostSetting.value);
+  critical_level= parseFloat(criticalLevelSetting.value);
 
-smsCost = parseFloat(smsCostSetting.value);
+  warning_level = parseFloat(warningLevelSetting.value);
 
-criticalLevel= parseFloat(criticalLevelSetting.value);
 
-warningLevel = parseFloat(warningLevelSetting.value);
+    call_cost = parseFloat(callCostSetting.value);
+
+    sms_cost = parseFloat(smsCostSetting.value);
+
+
+  var callCost = Faactory. Callprice(call_cost);
+  var smsCost = Faactory. Smsprice(sms_cost);
+
+ var criticalLevel = Faactory. criticalL(critical_level);
+ var warningLevel = Faactory. criticalL(warning_level);
+
 
 }
 
@@ -43,50 +44,37 @@ warningLevel = parseFloat(warningLevelSetting.value);
 updateSettingsBtn.addEventListener('click', Settinngs);
 
 
-       function radioBillTotalSettings(){
-          // get the value entered in the billType textfield
+
+  function radioBillTotalSettings(){
+
+    var criticalLevel = Faactory. criticalL(critical_level);
+    var warningLevel = Faactory. criticalL(warning_level);
+
+
           var checkedRadioBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     if (checkedRadioBtn){
         var billItemType = checkedRadioBtn.value;
-        // billItemType will be 'call' or 'sms'
-}
-        if (Total >= criticalLevel) {}
+      }
 
+  Faactory.Bill_Type(billItemType);
 
-        else{
-                if(billItemType === "call"){
-                  call += callCost;
-                 }
-                else if (billItemType === "sms"){
-                  sms += smsCost;
-              }
-
-        }
-
-Total = call + sms;
-smsTotalSettings.innerHTML = sms.toFixed(2);
-callTotalSettings.innerHTML = call.toFixed(2);
-totalSettings.innerHTML = Total.toFixed(2);
+totalSettings.innerHTML = Faactory.TTTotal().toFixed(2);
+smsTotalSettings.innerHTML = Faactory.Sms_Total().toFixed(2);
+callTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
 
 
 
-  if (Total >= criticalLevel){
-       // adding the danger class will make the text red
-       totalSettings.classList.add("danger");
+
+   if (Faactory.TTTotal() >= criticalLevel){
+        // adding the danger class will make the text red
+      totalSettings.classList.add("danger");
    }
-   else if (Total >=  warningLevel){
+   else if (Faactory.TTTotal() >=  warningLevel){
        totalSettings.classList.add("warning");
    }
-
-
-
-
-if (Total < criticalLevel) {
-  totalSettings.classList.remove("danger");
-}
-
-if (Total < warningLevel) {
-  totalSettings.classList.remove("warning");
+if (Faactory.TTTotal() < criticalLevel) {
+  totalSettings.classList.remove("danger"); }
+ if (Faactory.TTTotal() < warningLevel) {   totalSettings.classList.remove("warning");
 }
 
 

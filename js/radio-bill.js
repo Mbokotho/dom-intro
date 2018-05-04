@@ -1,64 +1,61 @@
-// get a reference to the sms or call radio buttons
+
 var billItemTypeRadio =document.querySelector(".billItemTypeRadio");
-//get a reference to the add button
+
 var radioBillAddBtn = document.querySelector(".radioBillAddBtn");
 
 var callTotalTwo= document.querySelector(".callTotalTwo");
 var smsTotalTwo =document.querySelector(".smsTotalTwo");
 var totalTwo =document.querySelector(".totalTwo");
 
-//create a variable that will keep track of the total bill
-
-
-
-//add an event listener for when the add button is pressed
 
 
 var Factory = Radiobillfactory();
-   // get the value entered in the billType textfield
+
 
    function radioBillTotal(){
-      // get the value entered in the billType textfield
+
+var tttotal = Factory.TTotal();
+
+
       var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
 if (checkedRadioBtn){
     var billItemType = checkedRadioBtn.value;
-    // billItemType will be 'call' or 'sms'
 }
 
 Factory.bill_Type(billItemType);
 
       callTotalTwo.innerHTML = Factory.call_Total().toFixed(2);
       smsTotalTwo.innerHTML =Factory. sms_Total().toFixed(2);
-      totalTwo.innerHTML = Factory.TTotal().toFixed(2);
+      totalTwo.innerHTML = tttotal.toFixed(2);
 
 
-      // if (total >= 50){
-      //         // adding the danger class will make the text red
-      //         totalTwo.classList.add("danger");
-      //     }
-      //     else if (total>= 30){
-      //         totalTwo.classList.add("warning");
-      //     }
-      //
-      //
-      //
-      //        if (total >= 50){
-      //                 // adding the danger class will make the text red
-      //               totalTwo.classList.add("danger");
-      //               }
-      //               else if (total >= 30){
-      //                   totalTwo.classList.add("warning");
-      //               }
-      //
-      //
-      //     if (total < 50) {
-      //       totalTwo.classList.remove("danger");
-      //     }
-      //
-      //     if (total < 30) {
-      //       totalTwo.classList.remove("warning");
-      //     }
-      //
+      if (tttotal >= 50){
+              // adding the danger class will make the text red
+              totalTwo.classList.add("danger");
+         }
+          else if (tttotal>= 30){
+             totalTwo.classList.add("warning");
+          }
+
+
+
+              if (tttotal >= 50){
+                      // adding the danger class will make the text red
+                     totalTwo.classList.add("danger");
+                   }
+                   else if (tttotal >= 30){
+                      totalTwo.classList.add("warning");
+                    }
+
+
+           if (tttotal < 50) {
+             totalTwo.classList.remove("danger");
+           }
+
+           if (tttotal < 30) {
+            totalTwo.classList.remove("warning");
+          }
+
 
   }
   radioBillAddBtn.addEventListener('click', radioBillTotal);
