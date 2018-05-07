@@ -51,22 +51,22 @@ else{
 
   }
 
-  function TTTotal(){
-    Total = call + sms ;
-    return Total;
-   }
 
-        function Call_Total(call_cost){
+
+        function Call_Total(call){
           call = call_cost
           return call;
         }
 
-        function Sms_Total(sms_cost){
+        function Sms_Total(sms){
           sms = sms_cost
           return sms;
         }
 
-
+        function TTTotal(){
+          Total = call + sms ;
+          return Total;
+         }
 
          return {
            Callprice,
