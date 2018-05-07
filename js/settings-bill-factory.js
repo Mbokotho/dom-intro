@@ -12,8 +12,8 @@ function Settingsfactory(){
 
 
 function Callprice(call_cost){
-  callCost = call_cost;
-  return callCost;
+  callCost = parseFloat(call_cost);
+return callCost;
 }
 
 function Smsprice(sms_cost){
@@ -36,7 +36,9 @@ function warningL(warning_level){
 
     var billTypeEntered = BillType;
 
-if(criticalLevel <= Total){}
+if(criticalLevel <= Total){
+
+}
 
 else{
         if (billTypeEntered === "call"){
@@ -54,11 +56,13 @@ else{
     return Total;
    }
 
-        function Call_Total(){
+        function Call_Total(call_cost){
+          call = call_cost
           return call;
         }
 
-        function Sms_Total(){
+        function Sms_Total(sms_cost){
+          sms = sms_cost
           return sms;
         }
 
