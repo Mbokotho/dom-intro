@@ -48,7 +48,7 @@ updateSettingsBtn.addEventListener('click', Settinngs);
   function radioBillTotalSettings(){
 
 
-
+critical_level= parseFloat(criticalLevelSetting.value);
     var criticalLevel = Faactory. criticalL(critical_level);
 
     var warningLevel = Faactory. warningL(  warning_level);
@@ -62,7 +62,7 @@ updateSettingsBtn.addEventListener('click', Settinngs);
 var settingstotal = Faactory.TTTotal();
 
 totalSettings.innerHTML = settingstotal.toFixed(2);
-smsTotalSettings.innerHTML = Faactory.Sms_Total().toFixed(2);
+smsTotalSettings.innerHTML = Faactory.Sms_price().toFixed(2);
 callTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
 
 

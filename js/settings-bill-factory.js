@@ -12,7 +12,7 @@ function Settingsfactory(){
 
 
 function Callprice(call_cost){
-  callCost = parseFloat(call_cost);
+  callCost = call_cost;
 return callCost;
 }
 
@@ -53,12 +53,12 @@ else{
 
 
 
-        function Call_Total(call){
+        function Call_Total(call_cost){
           call = call_cost
           return call;
         }
 
-        function Sms_Total(sms){
+        function Sms_Total(sms_cost){
           sms = sms_cost
           return sms;
         }
