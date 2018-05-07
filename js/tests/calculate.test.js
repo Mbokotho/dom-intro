@@ -1,7 +1,7 @@
 describe('calculate widget', function(){
 
     it('should calculate total cost of phone calls made', function(){
-        assert.equal( calculateBtnClicked ('call'), 2.75);
+        assert.equal( calculateBtnClicked ('call,call'), 5.5);
     });
 
     it('should calculate total cost of smses sent', function(){

@@ -3,9 +3,9 @@ function Textbillfactory(){
   var sms = 0;
   var total = 0;
 
-function bill_type(billTypeTxt){
+function bill_type(billTypeEntered){
 
-  var billTypeEntered = billTypeTxt;
+  //var billTypeEntered = billTypeTxt;
 
       if (billTypeEntered === "call"){
           call += 2.75;

@@ -1,3 +1,4 @@
+
 function Settingsfactory(){
   var criticalLevel = 0;
   var warningLevel= 0;
@@ -8,6 +9,7 @@ function Settingsfactory(){
   var sms = 0.0;
   var call = 0.0;
   var Total = 0.0;
+
 
 function Callprice(call_cost){
   callCost = call_cost;
@@ -34,13 +36,19 @@ function warningL(warning_level){
 
     var billTypeEntered = BillType;
 
+if(criticalLevel <= Total){}
+
+else{
         if (billTypeEntered === "call"){
             call += callCost ;
         }
         else if (billTypeEntered === "sms"){
             sms += smsCost;;
         }
+      }
+
   }
+
   function TTTotal(){
     Total = call + sms ;
     return Total;

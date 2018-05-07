@@ -34,8 +34,8 @@ function Settinngs(){
   var callCost = Faactory. Callprice(call_cost);
   var smsCost = Faactory. Smsprice(sms_cost);
 
- var criticalLevel = Faactory. criticalL(critical_level);
- var warningLevel = Faactory. criticalL(warning_level);
+   var criticalLevel = Faactory. criticalL(critical_level);
+   var warningLevel = Faactory. warningL(  warning_level);
 
 
 }
@@ -47,9 +47,11 @@ updateSettingsBtn.addEventListener('click', Settinngs);
 
   function radioBillTotalSettings(){
 
-    var criticalLevel = Faactory. criticalL(critical_level);
-    var warningLevel = Faactory. criticalL(warning_level);
 
+
+    var criticalLevel = Faactory. criticalL(critical_level);
+
+    var warningLevel = Faactory. warningL(  warning_level);
 
           var checkedRadioBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     if (checkedRadioBtn){
@@ -57,24 +59,25 @@ updateSettingsBtn.addEventListener('click', Settinngs);
       }
 
   Faactory.Bill_Type(billItemType);
+var settingstotal = Faactory.TTTotal();
 
-totalSettings.innerHTML = Faactory.TTTotal().toFixed(2);
+totalSettings.innerHTML = settingstotal.toFixed(2);
 smsTotalSettings.innerHTML = Faactory.Sms_Total().toFixed(2);
 callTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
 
 
 
 
-   if (Faactory.TTTotal() >= criticalLevel){
+   if (settingstotal >= Faactory. criticalL(critical_level)){
         // adding the danger class will make the text red
       totalSettings.classList.add("danger");
    }
-   else if (Faactory.TTTotal() >=  warningLevel){
+   else if (settingstotal >= Faactory. warningL(  warning_level)){
        totalSettings.classList.add("warning");
    }
-if (Faactory.TTTotal() < criticalLevel) {
+if (settingstotal< Faactory. criticalL(critical_level)) {
   totalSettings.classList.remove("danger"); }
- if (Faactory.TTTotal() < warningLevel) {   totalSettings.classList.remove("warning");
+ if (settingstotal <Faactory. warningL(  warning_level)) {   totalSettings.classList.remove("warning");
 }
 
 

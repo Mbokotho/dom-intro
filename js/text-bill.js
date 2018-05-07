@@ -16,6 +16,7 @@ function textBillTotal(){
 
 var billTypeEntered = billTypeText.value.trim();
 
+
 var tTTotal = factory.tTotal();
 
     factory.bill_type(billTypeEntered);
@@ -23,7 +24,7 @@ var tTTotal = factory.tTotal();
 
     callTotalOne.innerHTML = factory.call_total().toFixed(2);
     smsTotalOne.innerHTML = factory.sms_total().toFixed(2);;
-    totalOne.innerHTML = tTTotal .toFixed(2);
+    totalOne.innerHTML = factory.tTotal().toFixed(2);
 
 
      if (tTTotal>= 50){

@@ -1,7 +1,7 @@
 describe('settings widget', function(){
     it('should calculate total cost of phone calls made baased on price given', function(){
 
-      
+
       var Faactory =Settingsfactory();
 
       var callCost = Faactory.Callprice(2.75);
