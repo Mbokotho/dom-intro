@@ -47,8 +47,8 @@ updateSettingsBtn.addEventListener('click', Settinngs);
 
   function radioBillTotalSettings(){
 
-    var callCost = Faactory. Callprice(call_cost);
-    var smsCost = Faactory. Smsprice(sms_cost);
+    // var callCost = Faactory. Callprice(call_cost);
+    // var smsCost = Faactory. Smsprice(sms_cost);
 
 // // // critical_level= parseFloat(criticalLevelSetting.value);
 // //     var criticalLevel = Faactory.criticalL(critical_level);
@@ -65,8 +65,8 @@ updateSettingsBtn.addEventListener('click', Settinngs);
 var settingstotal = Faactory.TTTotal();
 
 totalSettings.innerHTML = Faactory.TTTotal().toFixed(2);
-smsTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
-callTotalSettings.innerHTML = Faactory.Sms_Total().toFixed(2);
+smsTotalSettings.innerHTML = Faactory.Sms_Total().toFixed(2);
+callTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
 
 
 

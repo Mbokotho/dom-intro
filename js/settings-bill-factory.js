@@ -41,12 +41,16 @@ function Bill_Type(billType){
 
   var billTypeEntered = billType;
 
-      if (billTypeEntered === "call"){
-          call += callCost;
-      }
-      else if (billTypeEntered === "sms"){
-          sms += smsCost;
-      }
+  if(criticalLevel <=   Total){}
+
+else{if (billTypeEntered === "call"){
+    call += callCost;
+}
+else if (billTypeEntered === "sms"){
+    sms += smsCost;
+}
+}
+
 }
 
 
