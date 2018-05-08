@@ -10,20 +10,22 @@ describe('Settings widget', function(){
 
 
       Faactory.Bill_Type('call');
+        Faactory.Bill_Type('call');
+        Faactory.Bill_Type('call');
 
-
-      assert.equal(Faactory.TTTotal(), 2.75);
+      assert.equal(Faactory.TTTotal(), 8.25);
 
 });
 
 it('should calculate total cost of smses sent', function(){
   var Faactory =  Settingsfactory();
-var sms_cost = Faactory.Smsprice(0.75);
+var sms_cost = Faactory.Smsprice(1);
 Faactory. Sms_Total(sms_cost);
 
 Faactory.Bill_Type('sms');
+Faactory.Bill_Type('sms');
 
-  assert.equal(Faactory.TTTotal(), 0.75);
+  assert.equal(Faactory.TTTotal(), 2);
 
 });
 

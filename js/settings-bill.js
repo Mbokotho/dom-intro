@@ -26,16 +26,16 @@ function Settinngs(){
   warning_level = parseFloat(warningLevelSetting.value);
 
 
-    call_cost = parseFloat(callCostSetting.value);
+  call_cost = parseFloat(callCostSetting.value);
 
-    sms_cost = parseFloat(smsCostSetting.value);
+  sms_cost = parseFloat(smsCostSetting.value);
 
 
-  var callCost = Faactory. Callprice(call_cost);
-  var smsCost = Faactory. Smsprice(sms_cost);
+   var callCost = Faactory. Callprice();
+  var smsCost = Faactory. Smsprice();
 
-   var criticalLevel = Faactory. criticalL(critical_level);
-   var warningLevel = Faactory. warningL(  warning_level);
+   // var criticalLevel = Faactory. criticalL(critical_level);
+   // var warningLevel = Faactory. warningL(  warning_level);
 
 
 }
@@ -47,11 +47,13 @@ updateSettingsBtn.addEventListener('click', Settinngs);
 
   function radioBillTotalSettings(){
 
+    var callCost = Faactory. Callprice(call_cost);
+      var smsCost = Faactory. Smsprice(sms_cost);
 
-critical_level= parseFloat(criticalLevelSetting.value);
-    var criticalLevel = Faactory. criticalL(critical_level);
-
-    var warningLevel = Faactory. warningL(  warning_level);
+// // // critical_level= parseFloat(criticalLevelSetting.value);
+// //     var criticalLevel = Faactory.criticalL(critical_level);
+//
+//     var warningLevel = Faactory.warningL(warning_level);
 
           var checkedRadioBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     if (checkedRadioBtn){
@@ -59,26 +61,27 @@ critical_level= parseFloat(criticalLevelSetting.value);
       }
 
   Faactory.Bill_Type(billItemType);
+
 var settingstotal = Faactory.TTTotal();
 
-totalSettings.innerHTML = settingstotal.toFixed(2);
-smsTotalSettings.innerHTML = Faactory.Sms_price().toFixed(2);
-callTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
+totalSettings.innerHTML = Faactory.TTTotal().toFixed(2);
+smsTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
+callTotalSettings.innerHTML = Faactory.Sms_Total().toFixed(2);
 
 
-
-
-   if (settingstotal >= Faactory. criticalL(critical_level)){
-        // adding the danger class will make the text red
-      totalSettings.classList.add("danger");
-   }
-   else if (settingstotal >= Faactory. warningL(  warning_level)){
-       totalSettings.classList.add("warning");
-   }
-if (settingstotal< Faactory. criticalL(critical_level)) {
-  totalSettings.classList.remove("danger"); }
- if (settingstotal <Faactory. warningL(  warning_level)) {   totalSettings.classList.remove("warning");
-}
+//
+//
+//    if (settingstotal >= Faactory.criticalL(critical_level)){
+//         // adding the danger class will make the text red
+//       totalSettings.classList.add("danger");
+//    }
+//    else if (settingstotal >= Faactory. warningL(  warning_level)){
+//        totalSettings.classList.add("warning");
+//    }
+// if (settingstotal< Faactory. criticalL(critical_level)) {
+//   totalSettings.classList.remove("danger"); }
+//  if (settingstotal <Faactory. warningL(  warning_level)) {   totalSettings.classList.remove("warning");
+// }
 
 
    };
