@@ -67,9 +67,12 @@ function Bill_Type(billType){
          Bill_Type,
          Call_Total,
          Sms_Total,
-        TTTotal,
+         TTTotal,
          Smsprice ,
-         Callprice   }
+         Callprice,
+          warningL,
+          criticalL
+   }
 
 
 }

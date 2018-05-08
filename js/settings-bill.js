@@ -31,8 +31,8 @@ function Settinngs(){
   sms_cost = parseFloat(smsCostSetting.value);
 
 
-   var callCost = Faactory. Callprice();
-  var smsCost = Faactory. Smsprice();
+   var callCost = Faactory. Callprice(call_cost);
+  var smsCost = Faactory. Smsprice(sms_cost);
 
    // var criticalLevel = Faactory. criticalL(critical_level);
    // var warningLevel = Faactory. warningL(  warning_level);
@@ -48,7 +48,7 @@ updateSettingsBtn.addEventListener('click', Settinngs);
   function radioBillTotalSettings(){
 
     var callCost = Faactory. Callprice(call_cost);
-      var smsCost = Faactory. Smsprice(sms_cost);
+    var smsCost = Faactory. Smsprice(sms_cost);
 
 // // // critical_level= parseFloat(criticalLevelSetting.value);
 // //     var criticalLevel = Faactory.criticalL(critical_level);
@@ -69,19 +69,19 @@ smsTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
 callTotalSettings.innerHTML = Faactory.Sms_Total().toFixed(2);
 
 
-//
-//
-//    if (settingstotal >= Faactory.criticalL(critical_level)){
-//         // adding the danger class will make the text red
-//       totalSettings.classList.add("danger");
-//    }
-//    else if (settingstotal >= Faactory. warningL(  warning_level)){
-//        totalSettings.classList.add("warning");
-//    }
-// if (settingstotal< Faactory. criticalL(critical_level)) {
-//   totalSettings.classList.remove("danger"); }
-//  if (settingstotal <Faactory. warningL(  warning_level)) {   totalSettings.classList.remove("warning");
-// }
+
+
+   if (settingstotal >= Faactory.criticalL(critical_level)){
+        // adding the danger class will make the text red
+      totalSettings.classList.add("danger");
+   }
+   else if (settingstotal >= Faactory. warningL(  warning_level)){
+       totalSettings.classList.add("warning");
+   }
+if (settingstotal< Faactory.criticalL(critical_level)) {
+  totalSettings.classList.remove("danger"); }
+ if (settingstotal < Faactory. warningL(  warning_level)) {   totalSettings.classList.remove("warning");
+}
 
 
    };
