@@ -16,7 +16,9 @@ var callTotalSettings = document.querySelector('.callTotalSettings');
 var smsTotalSettings = document.querySelector('.smsTotalSettings');
 var totalSettings = document.querySelector('.totalSettings');
 
-
+var call = 0;
+var sms = 0;
+var Total = 0;
 var Faactory = Settingsfactory();
 
 function Settinngs(){
@@ -50,11 +52,25 @@ updateSettingsBtn.addEventListener('click', Settinngs);
         var billItemType = checkedRadioBtn.value;
       }
 
+          if (Total >= Faactory.criticalL(criticalLevelSetting.value)) {}
+
+
+          else{
+                  if(billItemType === "call"){
+                    call += Faactory.Callprice(callCostSetting.value);
+                   }
+                  else if (billItemType === "sms"){
+                    sms += Faactory.Smsprice(smsCostSetting.value);
+                }
+
+          }
+
+  Total = call + sms;
   Faactory.Bill_Type(billItemType);
 
-  var ttl = Faactory.TTTotal();
+//  Total  = Faactory.TTTotal();
 
-  totalSettings.innerHTML = ttl.toFixed(2);
+  totalSettings.innerHTML = Total .toFixed(2);
   smsTotalSettings.innerHTML = Faactory.Sms_Total().toFixed(2);
   callTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
   Faactory.criticalL(criticalLevelSetting.value);
@@ -62,23 +78,29 @@ updateSettingsBtn.addEventListener('click', Settinngs);
 
 
 
-      if (ttl >= Faactory.criticalL(criticalLevelSetting.value)){
+      if (Total >= Faactory.criticalL(criticalLevelSetting.value)){
               // adding the danger class will make the text red
               totalSettings.classList.add("danger");
+
          }
-          else if (ttl>= Faactory.warningL(warningLevelSetting.value)){
+          else if (Total>= Faactory.warningL(warningLevelSetting.value)){
              totalSettings.classList.add("warning");
           }
 
-           if (ttl < Faactory.criticalL(criticalLevelSetting.value)) {
+           if (Total < Faactory.criticalL(criticalLevelSetting.value)) {
              totalSettings.classList.remove("danger");
+
            }
 
-           if (ttl < Faactory.warningL(warningLevelSetting.value)) {
+           if (Total < Faactory.warningL(warningLevelSetting.value)) {
             totalSettings.classList.remove("warning");
 
 }
-
+// if (ttl >= Faactory.criticalL(criticalLevelSetting.value)){
+//   document.getElementById("radioBillSettingsAddBtn").disabled = true;
+//
+//
+// }
 
    };
 
