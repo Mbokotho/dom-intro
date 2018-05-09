@@ -1,34 +1,43 @@
 
 describe('Settings widget', function(){
     it('should calculate total cost of phone calls made', function(){
-      var Faactory = Settingsfactory();
-
-  var call_cost =  Faactory.Callprice(2.75);
+      var ffaactory = Settingsfactory();
 
 
-      Faactory.Call_Total(call_cost)
+         ffaactory.Callprice(2);
+      ffaactory.Bill_Type('call');
+        ffaactory.Bill_Type('call');
+          ffaactory.Bill_Type('call');
+            ffaactory.Bill_Type('call');
 
-
-      Faactory.Bill_Type('call');
-        Faactory.Bill_Type('call');
-        Faactory.Bill_Type('call');
-
-      assert.equal(Faactory.TTTotal(), 8.25);
+        assert.equal(ffaactory.TTTotal(), 8);
 
 });
 
 it('should calculate total cost of smses sent', function(){
-  var Faactory =  Settingsfactory();
-var sms_cost = Faactory.Smsprice(1);
-Faactory. Sms_Total(sms_cost);
+  var ffaactory =  Settingsfactory()
 
-Faactory.Bill_Type('sms');
-Faactory.Bill_Type('sms');
+   ffaactory.Smsprice(0.75);
+ffaactory.Bill_Type('sms');
+ffaactory.Bill_Type('sms');
 
-  assert.equal(Faactory.TTTotal(), 2);
-
+  assert.equal(ffaactory.TTTotal(),1.5);
 });
 
+it('should calculate total cost of smses sent and calls made', function(){
+  var ffaactory =  Settingsfactory()
+
+   ffaactory.Smsprice(0.75);
+ffaactory.Bill_Type('sms');
+ffaactory.Bill_Type('sms');
+ffaactory.Callprice(2);
+ffaactory.Bill_Type('call');
+ffaactory.Bill_Type('call');
+ ffaactory.Bill_Type('call');
+   ffaactory.Bill_Type('call');
+
+  assert.equal(ffaactory.TTTotal(),9.5);
+});
 
 
 

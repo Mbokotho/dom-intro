@@ -21,21 +21,18 @@ var Faactory = Settingsfactory();
 
 function Settinngs(){
 
-  critical_level= parseFloat(criticalLevelSetting.value);
+Faactory.Callprice(callCostSetting.value);
+Faactory.Smsprice(smsCostSetting.value);
+Faactory.criticalL(criticalLevelSetting.value);
+Faactory.warningL(warningLevelSetting.value);
 
-  warning_level = parseFloat(warningLevelSetting.value);
+ var critical_level = parseFloat(criticalLevelSetting.value);
 
+  var warning_level= parseFloat(warningLevelSetting.value);
 
-  call_cost = parseFloat(callCostSetting.value);
+   var call_cost = parseFloat(callCostSetting.value) ;
 
-  sms_cost = parseFloat(smsCostSetting.value);
-
-
-   var callCost = Faactory. Callprice(call_cost);
-  var smsCost = Faactory. Smsprice(sms_cost);
-
-   // var criticalLevel = Faactory. criticalL(critical_level);
-   // var warningLevel = Faactory. warningL(  warning_level);
+  var sms_cost = parseFloat(smsCostSetting.value);
 
 
 }
@@ -47,13 +44,6 @@ updateSettingsBtn.addEventListener('click', Settinngs);
 
   function radioBillTotalSettings(){
 
-    // var callCost = Faactory. Callprice(call_cost);
-    // var smsCost = Faactory. Smsprice(sms_cost);
-
-// // // critical_level= parseFloat(criticalLevelSetting.value);
-// //     var criticalLevel = Faactory.criticalL(critical_level);
-//
-//     var warningLevel = Faactory.warningL(warning_level);
 
           var checkedRadioBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     if (checkedRadioBtn){
@@ -62,29 +52,34 @@ updateSettingsBtn.addEventListener('click', Settinngs);
 
   Faactory.Bill_Type(billItemType);
 
-var settingstotal = Faactory.TTTotal();
+  var ttl = Faactory.TTTotal();
 
-totalSettings.innerHTML = Faactory.TTTotal().toFixed(2);
-smsTotalSettings.innerHTML = Faactory.Sms_Total().toFixed(2);
-callTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
+  totalSettings.innerHTML = ttl.toFixed(2);
+  smsTotalSettings.innerHTML = Faactory.Sms_Total().toFixed(2);
+  callTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
+  Faactory.criticalL(criticalLevelSetting.value);
+  Faactory.warningL(warningLevelSetting.value);
 
 
 
+      if (ttl >= Faactory.criticalL(criticalLevelSetting.value)){
+              // adding the danger class will make the text red
+              totalSettings.classList.add("danger");
+         }
+          else if (ttl>= Faactory.warningL(warningLevelSetting.value)){
+             totalSettings.classList.add("warning");
+          }
 
-   if (settingstotal >= Faactory.criticalL(critical_level)){
-        // adding the danger class will make the text red
-      totalSettings.classList.add("danger");
-   }
-   else if (settingstotal >= Faactory. warningL(  warning_level)){
-       totalSettings.classList.add("warning");
-   }
-if (settingstotal< Faactory.criticalL(critical_level)) {
-  totalSettings.classList.remove("danger"); }
- if (settingstotal < Faactory. warningL(  warning_level)) {   totalSettings.classList.remove("warning");
+           if (ttl < Faactory.criticalL(criticalLevelSetting.value)) {
+             totalSettings.classList.remove("danger");
+           }
+
+           if (ttl < Faactory.warningL(warningLevelSetting.value)) {
+            totalSettings.classList.remove("warning");
+
 }
 
 
    };
 
     radioBillSettingsAddBtn.addEventListener('click', radioBillTotalSettings);
-    updateSettingsBtn.addEventListener('click', Settinngs);

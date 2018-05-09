@@ -18,7 +18,7 @@ it('should calculate total cost of smses sent', function(){
 
 });
 
-it('should calculate total cost of smses sent', function(){
+it('should calculate total cost of smses sent and call made', function(){
   var Factory = Radiobillfactory();
 
   Factory.bill_Type('sms');

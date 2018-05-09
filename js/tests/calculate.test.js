@@ -9,4 +9,8 @@ describe('calculate widget', function(){
     });
 
 
+        it('should calculate total cost of smses sent and call made', function(){
+            assert.equal( calculateBtnClicked ("sms,sms,call,call"), 7);
+        });
+
 });

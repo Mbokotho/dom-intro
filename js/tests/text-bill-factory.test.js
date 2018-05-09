@@ -18,4 +18,16 @@ factory.bill_type('sms');
 
 });
 
+it('should calculate total cost of smses sent and calls made', function(){
+  var factory = Textbillfactory();
+
+  factory.bill_type('sms');
+factory.bill_type('sms');
+factory.bill_type('sms');
+factory.bill_type('call');
+factory.bill_type('call');
+  assert.equal(factory.tTotal(), 7.75);
+
+});
+
 });
