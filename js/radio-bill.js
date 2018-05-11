@@ -23,6 +23,7 @@ if (checkedRadioBtn){
 }
 
 Factory.bill_Type(billItemType);
+var tttotal = Factory.TTotal()
 
       callTotalTwo.innerHTML = Factory.call_Total().toFixed(2);
       smsTotalTwo.innerHTML =Factory. sms_Total().toFixed(2);

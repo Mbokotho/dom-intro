@@ -57,7 +57,7 @@ else if (billTypeEntered === "sms"){
 
 
       function Call_Total(){
-        return call;
+        return call ;
       }
 
       function Sms_Total(){
