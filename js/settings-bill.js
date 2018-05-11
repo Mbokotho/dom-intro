@@ -71,8 +71,8 @@ updateSettingsBtn.addEventListener('click', Settinngs);
 //  Total  = Faactory.TTTotal();
 
   totalSettings.innerHTML = Total .toFixed(2);
-  smsTotalSettings.innerHTML = Faactory.Sms_Total().toFixed(2);
-  callTotalSettings.innerHTML = Faactory.Call_Total().toFixed(2);
+  smsTotalSettings.innerHTML = sms.toFixed(2);
+  callTotalSettings.innerHTML = call.toFixed(2);
   Faactory.criticalL(criticalLevelSetting.value);
   Faactory.warningL(warningLevelSetting.value);
 
